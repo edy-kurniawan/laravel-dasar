@@ -14,6 +14,7 @@ class ArtikelController extends Controller
      */
     public function index()
     {
+        // select * from artikel
         $artikel = Artikel::all();
 
         return view('admin.artikel', [
@@ -26,7 +27,9 @@ class ArtikelController extends Controller
      */
     public function create()
     {
-        //
+        $artikel = Artikel::with(['kategori'])->get();
+
+        return $artikel;
     }
 
     /**
@@ -36,6 +39,8 @@ class ArtikelController extends Controller
     {
         // membuat slug dari judul artikel
         $slug = Str::of($request->judul)->slug('-');
+
+        // rezie image thumbnail menjadi 300px x 300px
 
         // move file thumbnail ke folder public/thumbnail
         $request->thumbnail->move(public_path('thumbnail'), $request->thumbnail->getClientOriginalName());
@@ -59,7 +64,9 @@ class ArtikelController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $artikel = Artikel::find($id);
+
+        return $artikel;
     }
 
     /**
@@ -83,6 +90,10 @@ class ArtikelController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // delete artikel berdasarkan id
+        Artikel::find($id)->delete();
+
+        // redirect ke halaman artikel
+        return redirect('/artikel');
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\ArtikelController;
+use App\Http\Controllers\User\HomeController as UserHomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +57,5 @@ Route::resource('dashboard', DashboardController::class);
 // route untuk Artikel Controller
 Route::resource('artikel', ArtikelController::class);
 
+// route untuk User Home Controller
+Route::resource('home', UserHomeController::class);

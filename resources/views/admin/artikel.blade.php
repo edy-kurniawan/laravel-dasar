@@ -165,7 +165,7 @@
             <a href="index3.html" class="brand-link">
                 <img src="https://adminlte.io/themes/v3/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+                <h4 class="brand-text font-weight-light">ADMIN PANEL</h4>
             </a>
 
             <div class="sidebar">
@@ -205,12 +205,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Data Artikel</h1>
+                            <h1 class="m-0">Menu Artikel</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Data Artikel</li>
+                                <li class="breadcrumb-item active">Menu Artikel</li>
                             </ol>
                         </div>
                     </div>
@@ -224,35 +224,51 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-primary float-right" data-toggle="modal"
-                                        data-target="#exampleModal">
-                                        Tambah Data
-                                    </button>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h4 class="card-title">Tabel Data Artikel</h4>
+                                        </div>
+                                        <div class="col-6">
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary float-right"
+                                                data-toggle="modal" data-target="#exampleModal">
+                                                Tambah Data <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="card-body">
-                                    <table id="mytable" class="table">
+                                    <table id="mytable" class="table align-middle">
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Judul</th>
                                                 <th scope="col">Tanggal</th>
                                                 <th scope="col">Thumbnail</th>
-                                                <th scope="col">Aksi</th>
+                                                <th class="text-center" scope="col">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($artikel as $item)
                                             <tr>
-                                                <th scope="row">{{ $loop->iteration }}</th>
-                                                <td>{{ $item->judul }}</td>
-                                                <td>{{ $item->tanggal }}</td>
-                                                <td><img src="{{ url('thumbnail/'.$item->thumbnail) }}" alt=""
-                                                        width="100px"></td>
-                                                <td>
-                                                    <a href="" class="btn btn-warning">Edit</a>
-                                                    <a href="" class="btn btn-danger mr-1">Hapus</a>
+                                                <th scope="row" class="align-middle">{{ $loop->iteration }}</th>
+                                                <td class="align-middle">{!! $item->judul !!}</td>
+                                                <td class="align-middle">{{ $item->tanggal }}</td>
+                                                <td class="align-middle center"><img
+                                                        src="{{ url('thumbnail/'.$item->thumbnail) }}" alt=""
+                                                        width="80px"></td>
+                                                <td class="align-middle text-center">
+                                                    <a href="{{ route('artikel.show', $item->id) }}"
+                                                        class="btn btn-warning">Edit <i
+                                                            class="fas fa-edit"></i></a>
+                                                    <form action="{{ route('artikel.destroy', $item->id) }}"
+                                                        method="POST" class="d-inline">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-danger">Hapus <i
+                                                                class="fas fa-trash"></i></button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -292,8 +308,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Thumbnail</label>
-                                    <input type="file" name="thumbnail" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="Masukan Tangal">
+                                    <input type="file" name="thumbnail" class="form-control"
+                                        id="exampleFormControlInput1" placeholder="Masukan Tangal">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Isi</label>

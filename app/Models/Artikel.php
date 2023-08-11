@@ -18,6 +18,15 @@ class Artikel extends Model
         'tanggal',
         'thumbnail',
         'isi',
-        'slug'
+        'slug',
+        'kategori_id'
     ];
+
+    // mendefinisikan relasi has one ke tabel kategori
+    // has one = 1 artikel memiliki 1 kategori
+    // has many = 1 kategori memiliki banyak artikel
+    public function kategori()
+    {
+        return $this->hasOne(Kategori::class, 'id', 'kategori_id');
+    }
 }
