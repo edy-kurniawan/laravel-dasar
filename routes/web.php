@@ -17,3 +17,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/sesi-2', function () {
+    return view('sesi-2',[
+        'nama_siswa' => 'Rizky',
+        'umur' => 17,
+        'mata_pelajaran' => ['Matematika', 'Fisika', 'Kimia']
+    ]);
+});
+
+Route::get('/home', function () {
+    return view('home');
+});
+
