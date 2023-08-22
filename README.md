@@ -7,11 +7,7 @@ Untuk dapat menjalankan aplikasi ini, ada beberapa tahapan :
    ```sh
    composser install
    ```
-6. Setting database `.env`, lalu jalankan migrate
-   ```php
-   php artisan migrate
-   ```
-6. Running projek
+3. Running projek
    ```php
    php artisan serve
    ```
