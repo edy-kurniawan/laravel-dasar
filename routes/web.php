@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 
+// import controller untuk admin
+use App\Http\Controllers\Admin\ArtikelController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,4 +43,7 @@ Route::get('/contact', [HomeController::class, 'contact']);
 
 // route untuk Dashboard Controller
 Route::resource('dashboard', DashboardController::class);
+
+// route untuk admin Artikel Controller
+Route::resource('admin', ArtikelController::class);
 
