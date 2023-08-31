@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\ArtikelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +30,9 @@ Route::get('/sesi-2', function () {
     ]);
 });
 
+// route untuk dashboard controller
 Route::resource('dashboard', DashboardController::class);
+
+// route untuk admin, Artikel Controller
+Route::resource('artikel', ArtikelController::class);
 
