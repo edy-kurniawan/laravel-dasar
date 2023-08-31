@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\DashboardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,4 +28,6 @@ Route::get('/sesi-2', function () {
         'mata_pelajaran' => ['Matematika', 'Fisika', 'Kimia', 'Biologi']
     ]);
 });
+
+Route::resource('dashboard', DashboardController::class);
 
