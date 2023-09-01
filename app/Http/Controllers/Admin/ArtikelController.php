@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Artikel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ArtikelController extends Controller
 {
@@ -15,6 +16,7 @@ class ArtikelController extends Controller
     {
         // mengambil semua data artikel
         // Eloquent ORM
+        // select * from artikel
         $data = Artikel::all();
 
         // mereturn view dan mengirimkan data
@@ -36,14 +38,25 @@ class ArtikelController extends Controller
      */
     public function store(Request $request)
     {
+        // validasi data
+        
+        // slug
+        $slug = Str::of($request->judul)->slug('-');
+
+        // simpan thumbnail ke folder public
+        $request->file('thumbnail')->move('thumbnail', $request->file('thumbnail')->getClientOriginalName());
+
+        // ambil nama thumbnail
+        $nama_thumbnail = $request->file('thumbnail')->getClientOriginalName();
+
         // simpan data ke dalam tabel artikel
         // Eloquent ORM
         Artikel::create([
             'judul'     => $request->judul,
             'isi'       => $request->isi,
-            'slug'      => $request->judul,
+            'slug'      => $slug,
             'tanggal'   => $request->tanggal,
-            'thumbnail' => 'plane.png',
+            'thumbnail' => $nama_thumbnail
         ]);
 
         // redirect ke halaman artikel
@@ -63,7 +76,9 @@ class ArtikelController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = Artikel::find($id);
+
+        return $data;
     }
 
     /**
@@ -79,6 +94,10 @@ class ArtikelController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // hapus artikel
+        Artikel::destroy($id);
+
+        // redirect ke halaman artikel
+        return redirect('/artikel');
     }
 }

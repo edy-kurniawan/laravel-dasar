@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\ArtikelController;
+use App\Http\Controllers\User\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +36,7 @@ Route::resource('dashboard', DashboardController::class);
 
 // route untuk admin, Artikel Controller
 Route::resource('artikel', ArtikelController::class);
+
+// route untuk user, Home Controller
+Route::resource('home', HomeController::class);
 

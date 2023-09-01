@@ -252,8 +252,14 @@
                                                 <td><img src="{{ url('thumbnail/'.$item->thumbnail) }}" alt=""
                                                         width="100px"></td>
                                                 <td>
-                                                    <a href="" class="btn btn-warning">Edit</a>
-                                                    <a href="" class="btn btn-danger">Hapus</a>
+                                                    <a href="{{ route('artikel.edit', $item->id) }}"
+                                                        class="btn btn-warning">Edit</a>
+                                                    <form action="{{ route('artikel.destroy', $item->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -291,7 +297,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleFormControlInput1">Thumbnail :</label>
-                                                    <input type="file" name="tanggal" class="form-control"
+                                                    <input type="file" name="thumbnail" class="form-control"
                                                          placeholder="Masukan judul artikel">
                                                 </div>
                                                 <div class="form-group">
