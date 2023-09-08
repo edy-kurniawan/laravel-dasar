@@ -21,7 +21,7 @@ Untuk clone dengan spesifik branch tertentu dapat anda lakukan dengan cara menge
 Untuk dapat install library yang digunakan pada projek ini, anda lakukan dengan cara mengeksekusi perintah dibawah di terminal
 ```bash
   cd laravel-dasar
-  composser install
+  composer install
   
   running project :
   php artisan serve
