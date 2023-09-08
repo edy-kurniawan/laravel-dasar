@@ -5,7 +5,7 @@ Untuk dapat menjalankan aplikasi ini, ada beberapa tahapan :
 1. Clone the repo
 2. Install Dependecy
    ```sh
-   composser install
+   composer install
    ```
 3. Running projek
    ```php
