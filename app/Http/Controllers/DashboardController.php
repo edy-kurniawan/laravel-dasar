@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Artikel;
 
 class DashboardController extends Controller
 {
@@ -11,7 +12,13 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return 'ini function index dari DashboardController';
+        // mengambil semua data artikel
+        $artikel = Artikel::all();
+
+        // return view dan mengirimkan data artikel
+        return view('user.dashboard', [
+            'artikel' => $artikel
+        ]);
     }
 
     /**

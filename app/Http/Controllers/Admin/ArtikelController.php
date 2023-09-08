@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Artikel;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class ArtikelController extends Controller
@@ -15,6 +16,7 @@ class ArtikelController extends Controller
     {
         // mengambil semua data artikel
         // Eloquent ORM
+        // select * from artikel
         $artikel = Artikel::all();
 
         // return data ke view dan mengirimkan variabel artikel
@@ -36,9 +38,23 @@ class ArtikelController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        // membuat slug dari judul
+        $slug = Str::slug($request->judul, '-');
+
+        // ambil reqest thumbnail dari form lalu pindahkan ke folder public/thumbnail
+        $request->thumbnail->move(public_path('thumbnail'), $request->thumbnail->getClientOriginalName());
 
         // simpan ke dalam database
+        Artikel::create([
+            'judul'         => $request->judul,
+            'tanggal'       => $request->tanggal,
+            'thumbnail'     => $request->thumbnail->getClientOriginalName(),
+            'slug'          => $slug,
+            'isi'           => $request->isi,
+        ]);
+
+        // redirect ke halaman artikel
+        return redirect('/artikel');
     }
 
     /**
@@ -46,7 +62,10 @@ class ArtikelController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // mencari data artikel berdasarkan id
+        $artikel = Artikel::find($id);
+
+        return $artikel;
     }
 
     /**
@@ -54,7 +73,7 @@ class ArtikelController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return 'ini function edit';
     }
 
     /**
@@ -70,6 +89,10 @@ class ArtikelController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // hapus artikel berdasarkan id
+        Artikel::destroy($id);
+
+        // redirect ke halaman artikel
+        return redirect('/artikel');
     }
 }

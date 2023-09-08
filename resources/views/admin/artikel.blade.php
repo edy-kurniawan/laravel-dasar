@@ -252,8 +252,14 @@
                                                 <td><img src="{{ url('thumbnail/' . $data->thumbnail) }}" width="100px">
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary">Edit</button>
-                                                    <button type="button" class="btn btn-danger">Hapus</button>
+                                                    {{-- button edit ketika di klik diarahkan ke function show --}}
+                                                    <a href="{{ route('artikel.edit', $data->id) }}" class="btn btn-warning">Edit</a>
+                                                    {{-- button hapus ketika di klik diarahkan ke function destroy --}}
+                                                    <form action="{{ route('artikel.destroy', $data->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                             @endforeach
