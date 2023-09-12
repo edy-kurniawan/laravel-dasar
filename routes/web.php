@@ -2,11 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-// import controller
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Admin\ArtikelController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,30 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// route untuk sesi 2
+// route untuk halaman sesi 2
 Route::get('/sesi-2', function () {
+    // mengirim data ke view
     return view('sesi-2', [
-        'nama_siswa'  => 'Rizky',
-        'umur'  => 17,
-        'kelas' => 'XII RPL 1',
-        'mata_pelajaran' => ['Matematika', 'Bahasa Indonesia', 'Bahasa Inggris', 'Produktif RPL', 'Produktif TKJ']
+        'nama_siswa'    => 'Rizky Khapidsyah',
+        'umur'          => 19,
+        'mataKuliah'    => [
+            'Pemrograman Web Lanjut', 
+            'Pemrograman Berbasis Objek 1', 
+            'Pemrograman Berbasis Objek 2'
+        ]
     ]);
 });
-
-Route::get('/contoh/{nama}', function ($nama) {
-    // mereturn view dan mengirimkan data nama
-    return view('bootstrap', [
-        'nama' => $nama
-    ]);
-});
-
-// route untuk home controller
-Route::get('/home', [HomeController::class, 'index']);
-Route::get('/about', [HomeController::class, 'about']);
-Route::get('/contact', [HomeController::class, 'contact']);
-
-// route untuk dashboard controller
-Route::resource('/dashboard', DashboardController::class);
-
-// route untuk admin artikel controller
-Route::resource('/artikel', ArtikelController::class);
