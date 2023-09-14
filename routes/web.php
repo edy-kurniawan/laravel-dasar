@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController; 
 use App\Http\Controllers\DashboardController;
 
+// controller untuk admin
+use App\Http\Controllers\Admin\ArtikelController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,3 +49,6 @@ Route::get('/blog', [HomeController::class, 'blog']);
 
 // route untuk dashboard controller
 Route::resource('dashboard', DashboardController::class);
+
+// route untuk admin
+Route::resource('artikel', ArtikelController::class);
