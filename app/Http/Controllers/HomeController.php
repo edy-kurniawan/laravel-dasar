@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Artikel;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index(){
-        return 'Ini adalah function index yang ada di dalam HomeController.';
+        // mengambil semua data artikel
+        $artikel = Artikel::all();
+
+        // return data ke view dan mengirim data ke view
+        return view('user.home', [
+            'artikel'   => $artikel
+        ]);
     }
 
     public function about(){

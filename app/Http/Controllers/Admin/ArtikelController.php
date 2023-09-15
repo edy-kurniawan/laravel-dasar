@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Artikel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ArtikelController extends Controller
 {
@@ -15,7 +16,10 @@ class ArtikelController extends Controller
     {
         // mengambil semua data artikel
         // Eloquent => ORM (Object Relational Mapping)
+        // select * from artikel
         $artikel = Artikel::all();
+
+        Artikel::select('judul', 'tanggal')->get();
 
         // return data ke view dan passing data ke view
         return view('admin.artikel',[
@@ -36,9 +40,24 @@ class ArtikelController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        // membuat slug dari judul
+        $slug = Str::of($request->judul)->slug('-');
+
+        // upload thumbnail
+        $thumbnail = $request->file('thumbnail');
+        $thumbnail->move(public_path('thumbnail'), $thumbnail->getClientOriginalName());
 
         // menyimpan ke tabel artikel
+        Artikel::create([
+            'judul'     => $request->judul,
+            'tanggal'   => $request->tanggal,
+            'thumbnail' => $thumbnail->getClientOriginalName(),
+            'slug'      => $slug,
+            'isi'       => $request->isi,
+        ]);
+
+        // redirect ke halaman artikel
+        return redirect()->route('artikel.index');
     }
 
     /**
@@ -46,7 +65,10 @@ class ArtikelController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // mengambil data artikel berdasarkan id
+        $artikel = Artikel::find($id);
+
+        return $artikel;
     }
 
     /**
@@ -70,6 +92,10 @@ class ArtikelController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // menghapus artikel berdasarkan id
+        Artikel::destroy($id);
+
+        // redirect ke halaman artikel
+        return redirect()->route('artikel.index');
     }
 }

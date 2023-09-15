@@ -11,4 +11,13 @@ class Artikel extends Model
 
     // inisialisasi nama tabel
     protected $table = 'artikel';
+
+    // inisialisasi kolom yang bisa diisi
+    protected $fillable = [
+        'judul',
+        'tanggal',
+        'thumbnail',
+        'slug',
+        'isi',
+    ];
 }

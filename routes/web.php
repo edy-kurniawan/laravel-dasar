@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 // controller untuk admin
 use App\Http\Controllers\Admin\ArtikelController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
