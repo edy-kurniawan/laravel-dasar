@@ -7,42 +7,30 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Ini adalah halaman sesi 2</h1>
+    <h1>Ini Halaman Sesi 2</h1>
 
-    {{-- menampilkan suatu variable dengan blade --}}
-    {{-- syntak blade --}}
-    <h2>Nama : {{ $nama_siswa }}</h2>
-    {{-- syntak php --}}
-    <h2>Umur : <?php echo $umur; ?></h2>
+    {{-- menampilkan suatu variable --}}
+    <h2>Nama : {{ $nama }}</h2>
+    <h2>Nama : <?php echo $nama ?></h2>
 
-    {{-- menuliskan pengkondisian dengan blade --}}
-    {{-- syntak blade --}}
-    @if ($umur > 18)
+    {{-- menuliskan kondisi menggunakan blade --}}
+    @if ($umur >= 17)
         <h2>Anda sudah dewasa</h2>
     @else
-        <h2>Anda masih dibawah umur</h2>
+        <h2>Anda belum dewasa</h2>
     @endif
 
-    {{-- syntak php --}}
-    <?php if($umur > 18): ?>
+    <?php if ($umur >= 17): ?>
         <h2>Anda sudah dewasa</h2>
     <?php else: ?>
-        <h2>Anda masih dibawah umur</h2>
+        <h2>Anda belum dewasa</h2>
     <?php endif; ?>
 
-    {{-- menampilkan data array dengan blade --}}
-    {{-- syntak blade --}}
+    {{-- menampilkan data array --}}
     <ul>
         @foreach ($mataKuliah as $mk)
             <li>{{ $mk }}</li>
         @endforeach
-    </ul>
-
-    {{-- syntak php --}}
-    <ul>
-        <?php foreach($mataKuliah as $mk): ?>
-            <li><?php echo $mk; ?></li>
-        <?php endforeach; ?>
     </ul>
 
 </body>
