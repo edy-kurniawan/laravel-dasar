@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // import controller
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\ArtikelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,6 @@ Route::get('/about', [HomeController::class, 'about']);
 
 // route untuk dashboard controller
 Route::resource('dashboard', DashboardController::class);
+
+// route untuk admin
+Route::resource('artikel', ArtikelController::class);
