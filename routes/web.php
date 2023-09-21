@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+// import controller
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DashboardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,3 +40,10 @@ Route::get('/contoh', function () {
 Route::get('/user/{id}', function (string $id) {
     return 'User '.$id;
 });
+
+// route untuk home controller
+Route::get('/home', [HomeController::class, 'index']);
+Route::get('/about', [HomeController::class, 'about']);
+
+// route untuk dashboard controller
+Route::resource('dashboard', DashboardController::class);
