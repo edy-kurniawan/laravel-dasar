@@ -63,7 +63,10 @@ class ArtikelController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // mengambil data artikel berdasarkan id
+        $artikel = Artikel::find($id);
+
+        return $artikel;
     }
 
     /**
@@ -87,6 +90,10 @@ class ArtikelController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // menghapus artikel berdasarkan id
+        Artikel::destroy($id);
+
+        // redirect ke halaman artikel
+        return redirect('/artikel');
     }
 }

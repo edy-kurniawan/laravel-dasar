@@ -13,9 +13,13 @@ class DashboardController extends Controller
     public function index()
     {
         // mengambil semua data artikel
+        // Eloquent ORM
         $artikel = Artikel::all();
 
-        return $artikel;
+        // return data ke view dan mengirim data artikel
+        return view('users.dashboard', [
+            'artikel' => $artikel
+        ]);
     }
 
     /**
@@ -39,7 +43,10 @@ class DashboardController extends Controller
      */
     public function show(string $id)
     {
-        return 'ini function show dari DashboardController';
+        // mengambil data artikel berdasarkan id yang dipilih
+        $artikel = Artikel::find($id);
+
+        return $artikel;
     }
 
     /**

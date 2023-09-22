@@ -247,13 +247,19 @@
                                             @foreach ($artikel as $data)
                                             <tr>
                                                 <th scope="row">{{ $loop->iteration }}</th>
-                                                <td>{{ $data->judul }}</td>
+                                                <td>{!! $data->judul !!}</td>
                                                 <td>{{ date('d/m/Y', strtotime($data->tanggal)) }}</td>
                                                 <td><img src="{{ url('thumbnail/' . $data->thumbnail) }}" width="100px">
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary">Edit</button>
-                                                    <button type="button" class="btn btn-danger">Hapus</button>
+                                                    {{-- button hapus diarahkan ke function destroy --}}
+                                                    <form action="{{ route('artikel.destroy', $data->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        {{-- button edit diarahkan ke function show --}}
+                                                        <a href="{{ route('artikel.show', $data->id) }}" class="btn btn-warning">Edit</a>
+                                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                             @endforeach
