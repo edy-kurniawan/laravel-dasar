@@ -2,11 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-// import controller
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Admin\ArtikelController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,35 +14,18 @@ use App\Http\Controllers\Admin\ArtikelController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'Hello World';
 });
 
-Route::get('/sesi-2', function () {
+Route::get('/halaman-2', function () {
+    // menampilkan view dan mengirimkan data
     return view('sesi-2', [
-        'nama' => 'Rizky',
-        'umur' => 20,
-        'mataKuliah' => [
-            'Pemrograman Web Lanjut',
-            'Pemrograman Berbasis Objek',
-            'Pemrograman Mobile'
+        'mahasiswa'     => 'EKO',
+        'jurusan'       => 'Sistem Informasi',
+        'mataKuliah'    => [
+            'Pemrograman Web',
+            'Pemrograman Mobile',
+            'Pemrograman Desktop'
         ]
     ]);
 });
-
-Route::get('/contoh', function () {
-    return view('bootstrap');
-});
-
-Route::get('/user/{id}', function (string $id) {
-    return 'User '.$id;
-});
-
-// route untuk home controller
-Route::get('/home', [HomeController::class, 'index']);
-Route::get('/about', [HomeController::class, 'about']);
-
-// route untuk dashboard controller
-Route::resource('dashboard', DashboardController::class);
-
-// route untuk admin
-Route::resource('artikel', ArtikelController::class);
