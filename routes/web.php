@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+// import controller
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Portal\LoginController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +22,7 @@ Route::get('/', function () {
     return 'Hello World';
 });
 
+// route untuk sesi 2
 Route::get('/halaman-2', function () {
     // menampilkan view dan mengirimkan data
     return view('sesi-2', [
@@ -29,3 +35,14 @@ Route::get('/halaman-2', function () {
         ]
     ]);
 });
+
+// route untuk home controller
+Route::get('/home', [HomeController::class, 'index']);
+Route::get('/about', [HomeController::class, 'about']);
+Route::get('/contact', [HomeController::class, 'contact']);
+
+// route untuk dashboard controller
+Route::resource('/dashboard', DashboardController::class);
+
+// route untuk portal
+Route::get('/logout', [LoginController::class, 'logout']);
