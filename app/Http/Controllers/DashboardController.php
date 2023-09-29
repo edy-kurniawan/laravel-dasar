@@ -18,7 +18,10 @@ class DashboardController extends Controller
         // Eloquent ORM
         $artikel = Artikel::all();
 
-        return $artikel;
+        // return data ke view dan parsing data ke view
+        return view('user.dashboard', [
+            'artikel' => $artikel
+        ]);
     }
 
     /**
@@ -42,7 +45,11 @@ class DashboardController extends Controller
      */
     public function show(string $id)
     {
-        return 'ini function show dari DashboardController';
+        // mengambil data artikel berdasarkan slug
+        $artikel = Artikel::where('slug', $id)->first();
+
+        // return data ke view dan parsing data ke view
+        return $artikel;
     }
 
     /**
