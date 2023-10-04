@@ -2,13 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-// import controller
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\DashboardController;
-
-// import controller untuk admin
-use App\Http\Controllers\Admin\ArtikelController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,19 +24,3 @@ Route::get('/sesi-2', function () {
         'mata_pelajaran' => ['Matematika', 'Fisika', 'Kimia']
     ]);
 });
-
-Route::get('/home', function () {
-    return view('home');
-});
-
-// route untuk Home Controller
-Route::get('/sesi-3', [HomeController::class, 'index']);
-Route::get('/about', [HomeController::class, 'about']);
-Route::get('/contact', [HomeController::class, 'contact']);
-
-// route untuk Dashboard Controller
-Route::resource('dashboard', DashboardController::class);
-
-// route untuk admin Artikel Controller
-Route::resource('admin', ArtikelController::class);
-
