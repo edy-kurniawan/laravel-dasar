@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ArtikelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,5 @@ Route::get('/contact', [HomeController::class, 'contact']);
 Route::get('/about', [HomeController::class, 'about']);
 
 Route::resource('dashboard', DashboardController::class);
+
+Route::resource('artikel', ArtikelController::class);

@@ -5,18 +5,28 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // import model Artikel
 use App\Models\Artikel;
+use Illuminate\Support\Facades\DB;
 
-class DashbordController extends Controller
+class ArtikelController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         // mengambil data dari tabel artikel
+        //  select * from artikel
         $artikel = Artikel::all();
+        
+        Artikel::select('judul', 'isi')->get();
+        
+        DB::table('artikel')->get();
 
-        return $artikel;
+        // mengirim data artikel ke view artikel
+         return view('sesi-4', [
+             'artikel' => $artikel
+         ]);
     }
 
     /**
