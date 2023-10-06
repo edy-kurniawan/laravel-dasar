@@ -19,12 +19,8 @@ class ArtikelController extends Controller
         //  select * from artikel
         $artikel = Artikel::all();
         
-        Artikel::select('judul', 'isi')->get();
-        
-        DB::table('artikel')->get();
-
         // mengirim data artikel ke view artikel
-         return view('sesi-4', [
+         return view('artikel', [
              'artikel' => $artikel
          ]);
     }
@@ -42,7 +38,20 @@ class ArtikelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // upload thumbnail
+        $request->file('thumbnail')->move('thumbnail/', $request->file('thumbnail')->getClientOriginalName());
+        
+        // insert data ke table artikel
+        Artikel::create([
+            'judul'     => $request->judul,
+            'tanggal'   => $request->tanggal,
+            'thumbnail' => $request->file('thumbnail')->getClientOriginalName(),
+            'slug'      => $request->isi,
+            'isi'       => $request->isi,
+        ]);
+
+        // alihkan halaman ke halaman artikel
+        return redirect('/artikel');
     }
 
     /**
@@ -74,6 +83,10 @@ class ArtikelController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // menghapus data artikel berdasarkan id yang dipilih
+        Artikel::destroy($id);
+
+        // alihkan halaman ke halaman artikel
+        return redirect('/artikel');
     }
 }
