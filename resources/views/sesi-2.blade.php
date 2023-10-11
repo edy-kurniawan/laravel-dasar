@@ -4,34 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sesi 2</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>Ini Halaman Sesi 2</h1>
+    <h1>Ini halaman sesi 2</h1>
 
-    {{-- deklarasi variable --}}
-
-    <h4>Mata Pelajaran</h4>
+    {{-- menampilkan data array --}}
     <ul>
-        @foreach ($mata_pelajaran as $mp)
-            <li>{{ $mp }}</li>
+        @foreach ($mataKuliah as $mk)
+            <li>{{ $mk }}</li>
         @endforeach
     </ul>
 
-    <h2>Nama Saya Adalah {{ $nama_siswa }}</h2>
-    <h2>Umur Saya Adalah <?php echo $umur; ?></h2>
+    {{-- menampilkan variable --}}
+    <p>Nama : {{ $nama }}</p>
+    <p>Nama : <?php echo $nama ?></p>
 
-    @if ($umur > 18)
-        <h2>Umur Saya Lebih Dari 18 Tahun</h2>
+    {{-- kondisi --}}
+    @if ($nama == 'Rizky Khoirul Anam')
+        <p>Benar</p>
     @else
-        <h2>Umur Saya Kurang Dari 18 Tahun</h2>
+        <p>Salah</p>
     @endif
 
-    <?php if ($umur > 18): ?>
-        <h2>Umur Saya Lebih Dari 18 Tahun</h2>
+    <?php if ($nama == 'Rizky Khoirul Anam'): ?>
+        <p>Benar</p>
     <?php else: ?>
-        <h2>Umur Saya Kurang Dari 18 Tahun</h2>
-    <?php endif; ?>
+        <p>Salah</p>
+    <?php endif ?>
+
+    
 
 </body>
 </html>

@@ -2,9 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ArtikelController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,16 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/sesi-2', function () {
+// route untuk view sesi 2
+Route::get('/halaman-2', function () {
     return view('sesi-2',[
-        'nama_siswa' => 'Rizky',
-        'umur' => 17,
-        'mata_pelajaran' => ['Matematika', 'Fisika', 'Kimia']
+        'nama'          => 'Rizky',
+        'jurusan'       => 'XII RPL 1',
+        'mataKuliah'    => [
+            'Pemrograman Web', 
+            'Pemrograman Berorientasi Objek', 
+            'Pemrograman Mobile', 
+            'Pemrograman Desktop'
+        ]
     ]);
 });
-
-Route::get('/home', [HomeController::class, 'index']);
-Route::get('/contact', [HomeController::class, 'contact']);
-Route::get('/about', [HomeController::class, 'about']);
-
-Route::resource('artikel', ArtikelController::class);
