@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Artikel;
 use Illuminate\Http\Request;
 
 class ArtikelController extends Controller
@@ -11,6 +12,11 @@ class ArtikelController extends Controller
      */
     public function index()
     {
+        // mengambil semua data artikel
+        // Eloquent ORM
+        // SELECT * FROM artikel
+        $artikel = Artikel::all();
+
         return view('artikel.index');
     }
 
