@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Artikel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ArtikelController extends Controller
 {
@@ -17,7 +18,12 @@ class ArtikelController extends Controller
         // SELECT * FROM artikel
         $artikel = Artikel::all();
 
-        return view('artikel.index');
+        // select judul, isi from artikel
+        Artikel::select('judul', 'isi')->get();
+
+        return view('artikel.index', [
+            'artikel' => $artikel
+        ]);
     }
 
     /**
@@ -33,7 +39,23 @@ class ArtikelController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        // move thumbnail ke folder public/thumbnail
+        $request->file('thumbnail')->move('thumbnail', $request->file('thumbnail')->getClientOriginalName());
+
+        // slug
+        $slug = Str::of($request->judul)->slug('-');
+
+        // simpan data ke dalam tabel artikel
+        Artikel::create([
+            'judul'     => $request->judul,
+            'tanggal'   => $request->tanggal,
+            'thumbnail' => $request->file('thumbnail')->getClientOriginalName(),
+            'slug'      => $slug,
+            'isi'       => $request->isi,
+        ]);
+
+        // redirect ke halaman artikel
+        return redirect()->route('artikel.index');
     }
 
     /**
@@ -65,6 +87,10 @@ class ArtikelController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // delete artikel
+        Artikel::destroy($id);
+
+        // redirect ke halaman artikel
+        return redirect()->route('artikel.index');
     }
 }
