@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+// import controller
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DashboardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +33,13 @@ Route::get('/halaman-2', function () {
         ]
     ]);
 });
+
+// route untuk function index di home controller
+Route::get('home', [HomeController::class, 'index']);
+// route untuk function about di home controller
+Route::get('about', [HomeController::class, 'about']);
+// route untuk function contact di home controller
+Route::get('contact', [HomeController::class, 'contact']);
+
+// route untuk resource dashboard controller
+Route::resource('dashboard', DashboardController::class);
