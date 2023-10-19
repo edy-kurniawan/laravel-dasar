@@ -10,6 +10,7 @@
 <body>
     <h1>Ini adalah halaman Sesi 2</h1>
 
+
     {{-- menampilkan data array dengan blade --}}
     <h2>Mata Kuliah</h2>
     <ul>

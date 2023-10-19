@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// import model Artikel
+use App\Models\Artikel;
 
 class DashboardController extends Controller
 {
@@ -36,7 +38,14 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        return 'Ini function create yang ada di DashboardController';
+        // mengambil semua data dari tabel artikel
+        // select * from artikel
+        // Eloquent ORM
+        $artikel = Artikel::all();
+
+        return view('sesi-4', [
+            'artikel' => $artikel,
+        ]);
     }
 
     /**
