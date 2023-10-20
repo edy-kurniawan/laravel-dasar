@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'dev-28-agustus-2023',
-        'version' => 'dev-28-agustus-2023',
-        'reference' => '380c5a9badbc70f27d80a5f7c68d52f554cf5cdb',
+        'pretty_version' => 'dev-16-oktober-2023',
+        'version' => 'dev-16-oktober-2023',
+        'reference' => '67ee9169de7ee6e10e7b5b4d81ecefae0b4778b2',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -380,9 +380,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'dev-28-agustus-2023',
-            'version' => 'dev-28-agustus-2023',
-            'reference' => '380c5a9badbc70f27d80a5f7c68d52f554cf5cdb',
+            'pretty_version' => 'dev-16-oktober-2023',
+            'version' => 'dev-16-oktober-2023',
+            'reference' => '67ee9169de7ee6e10e7b5b4d81ecefae0b4778b2',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

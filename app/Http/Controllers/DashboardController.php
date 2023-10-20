@@ -43,6 +43,8 @@ class DashboardController extends Controller
         // Eloquent ORM
         $artikel = Artikel::all();
 
+        Artikel::select('judul', 'isi')->get();
+
         return view('sesi-4', [
             'artikel' => $artikel,
         ]);
