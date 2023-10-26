@@ -8,7 +8,8 @@
 
   <title>Gama Express</title>
 
-  <link rel="stylesheet" type="text/css" href="css/vendor.css">
+  <link rel="stylesheet" type="text/css" href="{{ url('css/vendor.css')}}">
+  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -233,45 +234,21 @@
     <div id="company" class="container py-5 my-5">
       <h1 class="text-center  my-5">Latest Articles</h1>
       <div class="row g-4 py-5">
+        @foreach ($artikel as $data)
         <div class="feature col-md-4">
           <div class="artical-post">
             <div class="feature-icon d-inline-flex align-items-center justify-content-center ">
               <img src="https://demo.templatesjungle.com/deliver/images/plane.png" alt="" class="img-fluid">
             </div>
             <div class="artical-content py-5 px-5 ">
-              <h3>Learn and stay updated with</h3>
+              <h3>{{ $data->judul }}</h3>
               <p>Lorem Ipsum is simply dummy text of the printing and typesetting Ipsum has been the industry's standard
                 dummy text ever since</p>
-              <a href="/dashboard/1" class="icon-link">More info </a>
+              <a href="/dashboard/{{ $data->id }}" class="icon-link">More info </a>
             </div>
           </div>
         </div>
-        <div class="feature col-md-4">
-          <div class="artical-post">
-            <div class="feature-icon d-inline-flex align-items-center justify-content-center">
-              <img src="https://demo.templatesjungle.com/deliver/images/box.png" alt="" class="img-fluid">
-            </div>
-            <div class="artical-content py-5 px-5 ">
-              <h3>Asia-Pacific shipping update</h3>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting Ipsum has been the industry's standard
-                dummy text ever since</p>
-              <a href="/dashboard/2" class="icon-link">More info </a>
-            </div>
-          </div>
-        </div>
-        <div class="feature col-md-4">
-          <div class="artical-post">
-            <div class="feature-icon d-inline-flex align-items-center justify-content-center">
-              <img src="https://demo.templatesjungle.com/deliver/images/plane.png" alt="" class="img-fluid">
-            </div>
-            <div class="artical-content py-5 px-5 ">
-              <h3>Stay up to date with logistics</h3>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting Ipsum has been the industry's standard
-                dummy text ever since</p>
-              <a href="/dashboard/3" class="icon-link">More info </a>
-            </div>
-          </div>
-        </div>
+        @endforeach
       </div>
       <div class="text-center">
         <button type="button" class="btn btn-primary first-button my-5">More Articles</button>

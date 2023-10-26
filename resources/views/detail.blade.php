@@ -103,7 +103,7 @@
                 <main class="post-grid col-md-9">
                     <div class="row">
                         <article class="post-item">
-                            <h2 class="blog-title display-5 text-capitalize mb-5">Main thing to remember while Delivery
+                            <h2 class="blog-title display-5 text-capitalize mb-5">{{ $artikel->judul }}
                             </h2>
 
                             <div class="hero-image">

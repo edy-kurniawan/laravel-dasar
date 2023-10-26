@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// import model Artikel
+use App\Models\Artikel;
+
 class DashboardController extends Controller
 {
     /**
@@ -11,7 +14,14 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        // mengambil semua data artikel
+        // Eloquent => ORM (Object Relational Mapping)
+        // select * from artikel
+        $artikel = Artikel::all();
+
+        return view('dashboard', [
+            'artikel' => $artikel
+        ]);
     }
 
     /**
@@ -19,7 +29,12 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        return 'ini function create dari dashboard controller';
+        // mengambil semua data artikel
+        // Eloquent => ORM (Object Relational Mapping)
+        // select * from artikel
+        $artikel = Artikel::all();
+
+        return $artikel;
     }
 
     /**
@@ -35,7 +50,14 @@ class DashboardController extends Controller
      */
     public function show(string $id)
     {
-        return view('detail');
+        // mengambil 1 data berdasarkan id
+        // Eloquent => ORM (Object Relational Mapping)
+        // select * from artikel where id = $id
+        $artikel = Artikel::find($id);
+
+        return view('detail', [
+            'artikel' => $artikel
+        ]);
     }
 
     /**
