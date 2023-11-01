@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Deliver - Free Courier Website Template</title>
-
+    <title>Gama Express</title>
 
     <link rel="stylesheet" type="text/css" href="css/vendor.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -103,8 +102,7 @@
                 <main class="post-grid col-md-9">
                     <div class="row">
                         <article class="post-item">
-                            <h2 class="blog-title display-5 text-capitalize mb-5">Main thing to remember while Delivery
-                            </h2>
+                            <h2 class="blog-title display-5 text-capitalize mb-5">{{ $artikel }}</h2>
 
                             <div class="hero-image">
                                 <img src="https://demo.templatesjungle.com/deliver/images/blog-large.jpg"
