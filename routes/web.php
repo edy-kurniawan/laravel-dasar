@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // import controller
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\ArtikelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,6 @@ Route::get('/about', [DashboardController::class, 'about']);
 
 // route untuk resource controller
 route::resource('home', HomeController::class);
+
+// route untuk artikel controller
+route::resource('artikel', ArtikelController::class);

@@ -225,45 +225,21 @@
     <div id="company" class="container py-5 my-5">
       <h1 class="text-center  my-5">Latest Articles</h1>
       <div class="row g-4 py-5">
-        <div class="feature col-md-4">
-          <div class="artical-post">
-            <div class="feature-icon d-inline-flex align-items-center justify-content-center ">
-              <img src="https://demo.templatesjungle.com/deliver/images/plane.png" alt="" class="img-fluid">
-            </div>
-            <div class="artical-content py-5 px-5 ">
-              <h3>Learn and stay updated with</h3>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting Ipsum has been the industry's standard
-                dummy text ever since</p>
-              <a href="/home/artikel-1" class="icon-link">More info </a>
-            </div>
-          </div>
-        </div>
+        @foreach ($artikel as $item)
         <div class="feature col-md-4">
           <div class="artical-post">
             <div class="feature-icon d-inline-flex align-items-center justify-content-center">
-              <img src="https://demo.templatesjungle.com/deliver/images/box.png" alt="" class="img-fluid">
+              <img src="{{ url('/thumbnail/'.$item->thumbnail) }}" alt="" class="img-fluid">
             </div>
             <div class="artical-content py-5 px-5 ">
-              <h3>Asia-Pacific shipping update</h3>
+              <h3>{{ $item->judul }}</h3>
               <p>Lorem Ipsum is simply dummy text of the printing and typesetting Ipsum has been the industry's standard
                 dummy text ever since</p>
-              <a href="/home/artikel-2" class="icon-link">More info </a>
+              <a href="/home/{{ $item->slug }}" class="icon-link">More info </a>
             </div>
           </div>
         </div>
-        <div class="feature col-md-4">
-          <div class="artical-post">
-            <div class="feature-icon d-inline-flex align-items-center justify-content-center">
-              <img src="https://demo.templatesjungle.com/deliver/images/plane.png" alt="" class="img-fluid">
-            </div>
-            <div class="artical-content py-5 px-5 ">
-              <h3>Stay up to date with logistics</h3>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting Ipsum has been the industry's standard
-                dummy text ever since</p>
-              <a href="{{ route('home.show', 'artikel-3')}}" class="icon-link">More info </a>
-            </div>
-          </div>
-        </div>
+        @endforeach
       </div>
       <div class="text-center">
         <button type="button" class="btn btn-primary first-button my-5">More Articles</button>

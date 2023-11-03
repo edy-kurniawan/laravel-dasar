@@ -102,102 +102,15 @@
                 <main class="post-grid col-md-9">
                     <div class="row">
                         <article class="post-item">
-                            <h2 class="blog-title display-5 text-capitalize mb-5">{{ $artikel }}</h2>
+                            <h2 class="blog-title display-5 text-capitalize mb-5">{{ $artikel->judul }}</h2>
 
                             <div class="hero-image">
-                                <img src="https://demo.templatesjungle.com/deliver/images/blog-large.jpg"
+                                <img src="{{ url('/thumbnail/'.$artikel->thumbnail) }}"
                                     alt="single-post" class="img-fluid">
                             </div>
                             <div class="post-content py-5">
                                 <div class="post-description">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consectetur facilisis
-                                        vivamus massa magna.
-                                        Blandit mauris libero condimentum commodo morbi consectetur sociis convallis
-                                        sit. Magna diam amet
-                                        justo sed vel dolor et volutpat integer. Iaculis sit sapien hac odio elementum
-                                        egestas neque.
-                                        Adipiscing purus euismod orci sem amet, et. Turpis erat ornare nisi laoreet est
-                                        euismod.</p>
-                                    <p>Sit suscipit tortor turpis sed fringilla lectus facilisis amet. Ipsum, amet dolor
-                                        curabitur non
-                                        aliquet orci urna volutpat. Id aliquam neque, ut vivamus sit imperdiet enim,
-                                        lacus, vel. Morbi arcu
-                                        amet, nulla fermentum vitae mattis arcu mi convallis. Urna in sollicitudin in
-                                        vestibulum erat.
-                                        Turpis faucibus augue ipsum, at aliquam. Cras sagittis tellus nunc integer vitae
-                                        neque bibendum
-                                        eget. Tempus malesuada et pellentesque maecenas. Sociis porttitor elit tincidunt
-                                        tellus sit ornare.
-                                        Purus ut quis sed venenatis eget ut ipsum, enim lacus. Praesent imperdiet vitae
-                                        eu, eu tincidunt
-                                        nunc integer sit.</p>
-                                    <blockquote>“Sit suscipit tortor turpis sed fringilla lectus facilisis amet. Ipsum,
-                                        amet dolor
-                                        curabitur non aliquet orci urna volutpat. Id aliquam neque, ut vivamus sit
-                                        imperdiet enim, lacus,
-                                        vel.</blockquote>
-                                    <h4 class="mt-4">Consectetur Facilisis Vivamus</h4>
-                                    <ul class="inner-list mb-4">
-                                        <li>Blandit mauris libero condimentum commodo sociis convallis sit.</li>
-                                        <li>Magna diam amet justo sed vel dolor et volutpat integer.</li>
-                                        <li>Laculis sit sapien hac odio elementum egestas neque.</li>
-                                    </ul>
-                                    <p>Morbi arcu amet, nulla fermentum vitae mattis arcu mi convallis. Urna in
-                                        sollicitudin in vestibulum
-                                        erat. Turpis faucibus augue ipsum, at aliquam. Cras sagittis tellus nunc integer
-                                        vitae neque
-                                        bibendum eget. Tempus malesuada et pellentesque maecenas. Sociis porttitor elit
-                                        tincidunt tellus sit
-                                        ornare. Purus ut ipsum, enim lacus. Praesent imperdiet vitae eu, eu tincidunt
-                                        nunc integer sit.</p>
-                                    <p>Tortor diam dignissim amet, in interdum aliquet. Magnis dictum et eros purus
-                                        fermentum, massa
-                                        ullamcorper sit sollicitudin. Nascetur libero elementum adipiscing mauris
-                                        maecenas et magna. Etiam
-                                        nec, rutrum a diam lacus, nunc integer etiam. Mattis pulvinar non viverra donec
-                                        pellentesque. Odio
-                                        mi consequat libero dolor. Porta ut diam lobortis eget leo, lectus. Nunc tempus
-                                        feugiat massa
-                                        laoreet ultrices diam magna quam. Congue auctor auctor luctus neque. Enim lorem
-                                        ultrices diam donec.
-                                        Sed id placerat consectetur faucibus.</p>
-                                    <div class="row my-4">
-                                        <div class="col-md-6">
-                                            <img src="https://demo.templatesjungle.com/deliver/images/blog3.jpg"
-                                                alt="post-image" class=" img-fluid align-left">
-                                            <h5 class="text-center mt-3">Velit, praesent pharetra malesuada</h5>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <img src="https://demo.templatesjungle.com/deliver/images/blog5.jpg"
-                                                alt="post-image" class=" img-fluid align-right">
-                                            <h5 class="text-center mt-3">Velit, praesent pharetra malesuada</h5>
-                                        </div>
-                                    </div>
-
-                                    <p>Id pulvinar amet. Consequat potenti mollis massa iaculis et, dolor, eget lectus.
-                                        Aliquam
-                                        pellentesque molestie felis fames sed eget non euismod eget. Et eget ullamcorper
-                                        urna, elit ac diam
-                                        tellus viverra lacus.</p>
-                                    <p>Tortor diam dignissim amet, in interdum aliquet. Magnis dictum et eros purus
-                                        fermentum, massa
-                                        ullamcorper sit sollicitudin. Nascetur libero elementum adipiscing mauris
-                                        maecenas et magna. Etiam
-                                        nec, rutrum a diam lacus, nunc integer etiam. Mattis pulvinar non viverra donec
-                                        pellentesque. Odio
-                                        mi consequat libero dolor. Porta ut diam lobortis eget leo, lectus.</p>
-                                    <p>Velit, praesent pharetra malesuada id pulvinar amet. Consequat potenti mollis
-                                        massa iaculis et,
-                                        dolor, eget lectus. Aliquam pellentesque molestie felis fames sed eget non
-                                        euismod eget. Et eget
-                                        ullamcorper urna, elit ac diam tellus viverra lacus.</p>
-                                    <p>Tortor diam dignissim amet, in interdum aliquet. Magnis dictum et eros purus
-                                        fermentum, massa
-                                        ullamcorper sit sollicitudin. Nascetur libero elementum adipiscing mauris
-                                        maecenas et magna. Etiam
-                                        nec, rutrum a diam lacus, nunc integer etiam. Mattis pulvinar non viverra donec
-                                        pellentesque. Odio
-                                        mi consequat libero dolor. Porta ut diam lobortis eget leo, lectus.</p>
+                                    {!! $artikel->isi !!}
                                     <div class="post-bottom-link d-md-flex justify-content-between my-5">
                                         <div class="block-tag">
                                             <ul class="list-unstyled text-decoration-underline d-flex ">

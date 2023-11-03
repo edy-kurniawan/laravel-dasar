@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+// import model Artikel
+use App\Models\Artikel;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,7 +13,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // ambil semua data artikel
+        // select * from artikel
+        // eloquent: ORM (Object Relational Mapping)
+        $artikel = Artikel::all();
+
+        // return view dengan parameter artikel
+        return view('home', [
+            'artikel' => $artikel
+        ]);
     }
 
     /**
@@ -36,7 +46,8 @@ class HomeController extends Controller
     public function show(string $id)
     {
         // cari data dengan slug yang sesuai
-        $artikel = $id;
+        // select * from artikel where slug = $id limit 1
+        $artikel = Artikel::where('slug', $id)->first();
 
         // return view dengan parameter artikel
         return view('single', [
