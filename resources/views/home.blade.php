@@ -234,7 +234,7 @@
               <h3>Learn and stay updated with</h3>
               <p>Lorem Ipsum is simply dummy text of the printing and typesetting Ipsum has been the industry's standard
                 dummy text ever since</p>
-              <a href="#" class="icon-link">More info </a>
+              <a href="/single" class="icon-link">More info </a>
             </div>
           </div>
         </div>
@@ -247,7 +247,7 @@
               <h3>Asia-Pacific shipping update</h3>
               <p>Lorem Ipsum is simply dummy text of the printing and typesetting Ipsum has been the industry's standard
                 dummy text ever since</p>
-              <a href="#" class="icon-link">More info </a>
+              <a href="/single" class="icon-link">More info </a>
             </div>
           </div>
         </div>
@@ -260,7 +260,7 @@
               <h3>Stay up to date with logistics</h3>
               <p>Lorem Ipsum is simply dummy text of the printing and typesetting Ipsum has been the industry's standard
                 dummy text ever since</p>
-              <a href="#" class="icon-link">More info </a>
+              <a href="/single" class="icon-link">More info </a>
             </div>
           </div>
         </div>

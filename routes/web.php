@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+// import controller
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\ArtikelController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +35,7 @@ Route::get('/halaman-sesi-2', function () {
     ]);
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/home', [HomeController::class, 'index']);
+Route::get('/single', [HomeController::class, 'single']);
+
+Route::resource('artikel', ArtikelController::class);
